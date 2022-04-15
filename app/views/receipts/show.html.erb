@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Showing Receipt From:</h1>
+  <h2> <%= @receipt.date_pumped.strftime("%d/%m/%Y %I:%M %p") %></h2>
+  <%= link_to "Edit", edit_receipt_path(@receipt), class: "btn btn-info" %>
+  <%= link_to "Delete", receipt_path(@receipt), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+  <hr>
+  <div class="card" style="background: #bfd6ff;">
+            <div class="card-body">
+              <h5>Gas Station Details</h5>
+              <ul class="list-group-flush mb-5" style="padding: 0;">
+                <li class="list-group-item"><h6>Gas Station: </h6><%= @receipt.gas_station %></li>
+                <li class="list-group-item"><h6>Address: </h6><%= @receipt.gas_station_address %></li>
+              </ul>
+
+              <h5>Fuel Details</h5>
+              <ul class="list-group-flush" style="padding: 0;">
+                <li class="list-group-item"><h6>Gas Type: </h6><%= @receipt.gas_type %></li>
+                <li class="list-group-item"><h6>Price/Gallon: </h6>$<%= @receipt.price_per_gal %></li>
+                <li class="list-group-item"><h6>Fuel Total: </h6>$<%= @receipt.fuel_total %></li>
+                <li class="list-group-item"><h6>Date Pumped: </h6><%= @receipt.date_pumped.strftime("%d/%m/%Y %I:%M %p") %></li>
+              </ul>
+            </div>
+          </div>  
+</div>

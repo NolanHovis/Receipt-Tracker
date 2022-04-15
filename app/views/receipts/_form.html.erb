@@ -1,0 +1,49 @@
+<div class="container col-md-6" style="background: #bfd6ff; padding: 1rem; box-shadow: 1px 1px 10px lightgrey;">
+
+<%= form_with(model: @receipt) do |form| %>
+  <div class="mb-3">
+    <%= form.label :gas_station, "Gas Station Name:", class: "form-label" %>
+    <%= form.text_field :gas_station, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :gas_station_address, "Gas Station Address:", class: "form-label" %>
+    <%= form.text_field :gas_station_address, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :gas_type, "Select Fuel Type:", class: "form-label" %>
+    <div class="form-check">
+      <%= form.radio_button :gas_type, "Regular (87)", class: "form-check-input" %>
+      <%= form.label :gas_type, "Regular (87)", class: "form-check-label" %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :gas_type, "Plus (89)", class: "form-check-input" %>
+      <%= form.label :gas_type, "Plus (89)", class: "form-check-label" %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :gas_type, "Premium (91)", class: "form-check-input" %>
+      <%= form.label :gas_type, "Premium (91)", class: "form-check-label" %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :gas_type, "Super (93)", class: "form-check-input" %>
+      <%= form.label :gas_type, "Super (93)", class: "form-check-label" %>
+    </div>
+  </div>
+  <div class="mb-3">
+    <%= form.label :price_per_gal, "Price/Gallon:", class: "form-label" %>
+    <%= form.number_field :price_per_gal, step: 0.01, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :fuel_total, "Fuel Total:", class: "form-label" %>
+    <%= form.number_field :fuel_total, step: 0.01, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :total_gallons, "Total Gallons:", class: "form-label" %>
+    <%= form.number_field :total_gallons, step: 0.01, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :date_pumped, "Date Pumped:", class: "form-label" %>
+    <%= form.datetime_field :date_pumped, class: "form-control" %>
+  </div>
+  <%= form.submit "Save Receipt", class: "btn btn-primary" %>
+<% end %>
+</div>
